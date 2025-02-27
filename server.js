@@ -14,7 +14,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: 'http://localhost:5173' // Replace with your React app's port
+    origin: 'https://forevershop.vercel.app/' // Replace with your React app's port
   }));// Enable CORS
 app.use(express.json()); // Parse JSON bodies
 // Serve static files from the "public" folder
