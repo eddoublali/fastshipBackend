@@ -12,10 +12,18 @@ const path = require('path');
 
 const app = express();
 
-// Middleware
+const allowedOrigins = ['https://forevershop.vercel.app', 'http://localhost:3000']; // Add other domains as needed
+
 app.use(cors({
-    origin: 'https://forevershop.vercel.app/' // Replace with your React app's port
-  }));// Enable CORS
+  origin: (origin, callback) => {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+}));
+
 app.use(express.json()); // Parse JSON bodies
 // Serve static files from the "public" folder
 app.use("/images/products", express.static(path.join(__dirname, "public/images/products")));
