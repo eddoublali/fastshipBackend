@@ -588,7 +588,7 @@ const products = [
 const seedDatabase = async () => {
     try {        
         console.log("Connecting to MongoDB...");
-        await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/your-database-name');
+        await mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://zeddoublali:Twdb5xVZsBDD4MvC@shope.tvi4s.mongodb.net/?retryWrites=true&w=majority&appName=shope');
         console.log("Connected successfully");
 
         console.log("Clearing existing data...");
